@@ -65,7 +65,6 @@ if ($method === 'POST') {
 
     saveFileContent(FILE_COUNTRY, $itemsFiltered);
     response(['message' => 'Deletado com sucesso'], 204);
-
 } elseif ($method === 'GET' && $_GET['id']) { // Buscar lugar
     $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
@@ -80,20 +79,29 @@ if ($method === 'POST') {
             response($item, 200);
         }
     }
-
 } elseif ($method === 'PUT') { // Atualizar lugar
     $body = getBody();
     $id = filter_var($_GET['id'], FILTER_VALIDATE_INT);
 
-    var_dump($id);
+    if (!$id) {
+        responseError('ID ausente', 400);
+    }
 
     $allData = readFileContent(FILE_COUNTRY);
 
     foreach ($allData as $position => $item) {
-        if ($item->id == $id) {
-            $allData[$position]->name = $body->name;
+        if ($item->id === $id) {
+            $allData[$position]->name =  isset($body->name) ? $body->name : $item->name;
+            $allData[$position]->contact =  isset($body->contact) ? $body->contact : $item->contact;
+            $allData[$position]->opening_hours =   isset($body->opening_hours) ? $body->opening_hours : $item->opening_hours;
+            $allData[$position]->description =  isset($body->description) ? $body->description : $item->description;
+            $allData[$position]->latitude =  isset($body->latitude) ? $body->latitude : $item->latitude;
+            $allData[$position]->longitude =  isset($body->longitude) ? $body->longitude : $item->longitude;
         }
     }
 
+
+
     saveFileContent(FILE_COUNTRY, $allData);
+    response([], 200);
 }
