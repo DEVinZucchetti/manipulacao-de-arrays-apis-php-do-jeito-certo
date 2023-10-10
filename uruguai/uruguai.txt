@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "id": 1696889900,
+    "name": "Montevideo",
+    "contact": "3333-3333",
+    "opening_hours": "8h - 18h",
+    "description": "Capital",
+    "latitude": 123456789,
+    "longitude": 987654321
+  }
+]
