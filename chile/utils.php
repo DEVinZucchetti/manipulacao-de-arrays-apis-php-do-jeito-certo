@@ -12,7 +12,7 @@ function readFileContent($fileName)
 // Salva o conteúdo em um arquivo com o nome especificado após codificá-lo para JSON
 function saveFileContent($fileName, $content)
 {
-    file_put_contents($fileName, json_encode($content));
+    file_put_contents($fileName, json_encode($content, JSON_PRETTY_PRINT));
 }
 
 // Função de validação
