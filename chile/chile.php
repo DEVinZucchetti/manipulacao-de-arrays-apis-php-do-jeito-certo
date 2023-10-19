@@ -60,9 +60,10 @@ if ($method === 'POST') {
     }
     $allData = readFileContent(FILE_COUNTRY);
 
-    $itemsFiltered = array_filter($allData, function ($item) use ($id) {
+    //array_values pegará apenas os valores
+    $itemsFiltered = array_values(array_filter($allData, function ($item) use ($id) {
         return $item->id !== $id;
-    });
+    }));
 
     saveFileContent(FILE_COUNTRY, $itemsFiltered);
     response(['message' => 'Deletado com sucesso'], 204);
