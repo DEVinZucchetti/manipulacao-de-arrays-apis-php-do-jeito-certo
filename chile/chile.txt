@@ -1,1 +1,1 @@
-[]
+[{"id":1697728504,"name":"Pra\u00e7a da Seguran\u00e7a","contact":"4002-8922","opening_hours":"08:00 as 20:00","description":"Linda cidade","latitude":-1.439898,"longitude":1.325488},{"id":1697728510,"name":"Nova Angra","contact":"1111-1111","opening_hours":"08:00 as 20:00","description":"Linda cidade","latitude":-1.439898,"longitude":1.325488},{"id":1697728513,"name":"Vila Bom Jardim 3","contact":"4002-8922","opening_hours":"08:00 as 20:00","description":"Linda cidade","latitude":-1.439898,"longitude":1.325488}]
