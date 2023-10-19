@@ -1,7 +1,7 @@
 [
     {
         "id": 1697742194,
-        "name": "Shopping",
+        "name": "Nova Velha Angra",
         "contact": "4002-8922",
         "opening_hours": "08:00 as 20:00",
         "description": "Linda cidade",
