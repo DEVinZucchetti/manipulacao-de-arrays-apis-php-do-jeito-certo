@@ -36,7 +36,6 @@ if ($method === 'POST') {
     $review->save();
 
     response(['message' => 'Cadastro com sucesso'], 201);
-
 } elseif ($method = "PUT") {
     $body = getBody();
     $id =  sanitizeInput($_GET, 'id', FILTER_VALIDATE_INT, false);
