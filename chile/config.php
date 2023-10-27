@@ -1,5 +1,9 @@
 <?php
-define('FILE_COUNTRY', 'chile.txt');
+//Formatando o timezone para a data e hora do Brasil
+date_default_timezone_set('America/Sao_Paulo');
+
+define('FILE_CITY', 'chile.txt');
+define('FILE_REVIEWS', 'reviews.txt');
 
 // Aplicação retorna JSON:
 header("Content-Type: application/json");
