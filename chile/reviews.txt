@@ -1,0 +1,29 @@
+[
+    {
+        "id": "653aea2bb5282",
+        "name": "Edu - Lugar muito [EDITADO PELO ADMIN] \ud83e\udd10",
+        "email": "e@gmail.com",
+        "stars": 5,
+        "status": "PENDENTE",
+        "date": "26\/10\/2023 07:10",
+        "place_id": "1697742194"
+    },
+    {
+        "id": "653c1126918ee",
+        "name": "Edu - Lugar muito [EDITADO PELO ADMIN] \ud83e\udd10 xxxxxxxxx",
+        "email": "e@gmail.com",
+        "stars": 5,
+        "status": "PENDENTE",
+        "date": "27\/10\/2023 04:10",
+        "place_id": "16977421943444"
+    },
+    {
+        "id": "653c24c1a9871",
+        "name": "Edu - Shopping muito \ud83d\ude37 R$R$R$",
+        "email": "e@gmail.com",
+        "stars": 2,
+        "status": "PENDENTE",
+        "date": "27\/10\/2023 05:10",
+        "place_id": "653c24804bb5e"
+    }
+]
