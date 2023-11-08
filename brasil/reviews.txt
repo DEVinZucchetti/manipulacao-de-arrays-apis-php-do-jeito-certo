@@ -1,0 +1,20 @@
+[
+    {
+        "id": "653c24c1a9871",
+        "name": "Lincon - Shopping muito \ud83d\ude37 R$R$R$",
+        "email": "l@gmail.com",
+        "stars": 2,
+        "status": "PENDENTE",
+        "date": "27\/10\/2023 05:10",
+        "place_id": "653c24804bb5e"
+    },
+    {
+        "id": "654b8f2599739",
+        "name": "Musk - Palestra muito \ud83d\ude37",
+        "email": "m@gmail.com",
+        "stars": 2,
+        "status": "PENDENTE",
+        "date": "08\/11\/2023 10:11",
+        "place_id": "1697742194"
+    }
+]
