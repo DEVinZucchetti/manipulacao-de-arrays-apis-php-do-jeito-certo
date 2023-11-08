@@ -1,1 +1,20 @@
-[]
+[
+    {
+        "id": 1699449121,
+        "name": "Igreja Universal",
+        "contact": "0000-0000",
+        "opening_hours": "08:00 as 20:00",
+        "description": "Linda igreja",
+        "latitude": -2.4561,
+        "longitude": 1.5468
+    },
+    {
+        "id": 1699449142,
+        "name": "Igreja da Nossa Senhora Aparecida",
+        "contact": "9876-5432",
+        "opening_hours": "08:00 as 20:00",
+        "description": "Linda igreja",
+        "latitude": -2.4561,
+        "longitude": 1.5468
+    }
+]
