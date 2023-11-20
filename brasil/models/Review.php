@@ -3,7 +3,6 @@ require_once './utils.php';
 
 class Review
 {
-    //Criando os atributos que são as variáveis que esta no review.php
     private $id, $name, $email, $stars, $date, $status, $place_id;
 
     public function __construct($place_id = null)
@@ -45,15 +44,6 @@ class Review
     public function updateStatus($id, $status)
     {
         $allData = readFileContent('reviews.txt');
-
-        /*
-        foreach ($allData as $position => $item) {
-            if ($item->id === $id) {
-                $allData[$position]->status = $status;
-            }
-        }
-        */
-
      
         foreach ($allData  as $review) {
             if ($review->id === $id) {
@@ -66,7 +56,6 @@ class Review
         saveFileContent('reviews.txt', $allData);
     }
 
-    //Id só tem get
     public function getId()
     {
         return $this->id;
@@ -102,7 +91,6 @@ class Review
         $this->stars = $stars;
     }
 
-    //Só irei pegar a data
     public function getDate()
     {
         return $this->date;
@@ -118,17 +106,8 @@ class Review
         $this->status = $status;
     }
 
-
     public function getPlaceId()
     {
         return $this->place_id;
     }
 }
-
-/* Informações do projeto
-enum ReviewsStatus {
-    case 1: 'EM ANDAMENTO';
-    case 2: 'FINALIZADO';
-    case 3: 'REPROVADO';
-}
-*/
