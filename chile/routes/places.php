@@ -1,7 +1,7 @@
 <?php
 // Importar arquivos:
-require_once 'config.php';
-require_once 'controller/PlaceController.php';
+require_once '../config.php';
+require_once '../controller/PlaceController.php';
 
 // Capturar metodo:
 $method = $_SERVER['REQUEST_METHOD'];
