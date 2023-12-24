@@ -1,0 +1,26 @@
+[
+    {
+        "id": "6588b550ccbe7",
+        "name": "Marcel - Lugar lugar",
+        "email": "gmail@gmail.com",
+        "stars": 2,
+        "status": "pendente",
+        "place_id": "6588b550ccbe7"
+    },
+    {
+        "id": "6588b5520ad11",
+        "name": "Marcel - Lugar lugar",
+        "email": "gmail@gmail.com",
+        "stars": 2,
+        "status": "pendente",
+        "place_id": "6588b5520ad11"
+    },
+    {
+        "id": "6588b5651cd85",
+        "name": "Marcel - Lugar lugar",
+        "email": "gmail@gmail.com",
+        "stars": 2,
+        "status": "pendente",
+        "place_id": "6588b5651cd85"
+    }
+]
