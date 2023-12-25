@@ -23,7 +23,6 @@ class Review
         $this->place_id = $place_id;
         $this->date = (new DateTime())->format('d/m/Y h:i');
         $this->status = 'PENDENTE';
-    
     }
 
     public function save()
@@ -42,13 +41,26 @@ class Review
         saveFileContent('reviews.txt', $allData);
     }
 
-    public function list(){
+    public function list()
+    {
         $allData = readFileContent('reviews.txt');
 
-        $filtered = array_values(array_filter($allData, function($review) {
-           return $review ->place_id === $this->getPlaceId();
+        $filtered = array_values(array_filter($allData, function ($review) {
+            return $review->place_id === $this->getPlaceId();
         }));
         return $filtered;
+    }
+
+    public function updateStatus($id, $status)
+    {
+        $allData = readFileContent('reviews.txt');
+
+        foreach ($allData as $position => $item) {
+            if ($item->id === $id) {
+                $allData[$position]->status = $status;
+            }
+        }
+        saveFileContent('reviews.txt', $allData);
     }
 
 
