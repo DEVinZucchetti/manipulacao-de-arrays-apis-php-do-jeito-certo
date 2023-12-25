@@ -1,20 +1,11 @@
 [
-  {
-    "id": null,
-    "name": "Praça do caju",
-    "contact": "2222-2222",
-    "opening_hours": "9:00 as 20:00 horas",
-    "description": "praça publica",
-    "latitude": -1.11111,
-    "longitude": 1.1111111
-  },
-  {
-    "id": 1700093821,
-    "name": "Praça do caju",
-    "contact": "2222-2222",
-    "opening_hours": "9:00 as 20:00 horas",
-    "description": "praça publica",
-    "latitude": -1.11111,
-    "longitude": 1.1111111
-  }
+    {
+        "id": "658a092b96f26",
+        "name": "Pra\u00e7a do lu",
+        "contact": "2222-2222",
+        "opening_hours": "9:00 as 20:00 horas",
+        "description": "pra\u00e7a publica",
+        "latitude": -1.11111,
+        "longitude": 1.1111111
+    }
 ]

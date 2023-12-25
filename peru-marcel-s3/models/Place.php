@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 require_once 'config.php';
 
-class Place {
+class Place
+{
     public $id;
     private $name;
     private $contact;
@@ -12,12 +13,14 @@ class Place {
     private $longitude;
 
 
-    public function __construct($name = null) {
+    public function __construct($name = null)
+    {
         $this->id = uniqid();
         $this->name = $name;
     }
 
-    public function save(){
+    public function save()
+    {
         $data = [
             'id' => $this->getId(),
             'name' => $this->getName(),
@@ -33,9 +36,52 @@ class Place {
         saveFileContent(FILE_COUNTRY, $allData);
     }
 
-    public function list(){
+    public function list()
+    {
         $allData = readFileContent(FILE_COUNTRY);
         return $allData;
+    }
+
+    public function delete($id)
+    {
+        $allData = readFileContent(FILE_COUNTRY);
+
+        $itemsFiltered = array_values(array_filter($allData, function ($item) use ($id) {
+            return $item->id !== $id;
+        }));
+
+        saveFileContent(FILE_COUNTRY, $itemsFiltered);
+    }
+
+    public function update($id, $data)
+    {
+
+        $allData = readFileContent(FILE_COUNTRY);
+
+        foreach ($allData as $position => $item) {
+            if ($item->id === $id) {
+                $allData[$position]->name = isset($data->name) ? $data->name : $item->name;
+                $allData[$position]->contact = isset($data->contact) ? $data->contact : $item->contact;
+                $allData[$position]->opening_hours = isset($data->opening_hours) ? $data->opening_hours : $item->opening_hours;
+                $allData[$position]->description = isset($data->description) ? $data->description : $item->description;
+                $allData[$position]->latitude = isset($data->latitude) ? $data->latitude : $item->latitude;
+                $allData[$position]->longitude = isset($data->longitude) ? $data->longitude : $item->longitude;
+            }
+        }
+        saveFileContent(FILE_COUNTRY, $allData);
+    }
+
+
+    public function listOne($id){
+
+        $allData = readFileContent(FILE_COUNTRY);
+
+        foreach ($allData as $item) {
+            if ($item->id === $id) {
+               return $item;
+            }
+        }
+
     }
 
     public function getId()
@@ -57,7 +103,7 @@ class Place {
     {
         return $this->contact;
     }
-  
+
     public function setContact($contact)
     {
         $this->contact = $contact;
@@ -103,5 +149,3 @@ class Place {
         $this->longitude = $longitude;
     }
 }
-
-
