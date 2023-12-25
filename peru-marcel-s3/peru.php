@@ -1,6 +1,7 @@
 <?php
 require_once 'config.php';
 require_once 'utils.php';
+require_once 'models/Place.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -29,22 +30,18 @@ if ($method === 'POST') {
         responseError('O item já existe', 409);
     }
 
-    $data = [
-        'id' => $_SERVER['REQUEST_TIME'],
-        'name' => $name,
-        'contact' => $contact,
-        'opening_hours' => $opening_hours,
-        'description' => $description,
-        'latitude' => $latitude,
-        'longitude' => $longitude
-    ];
+    $place = new Place($name);
+    $place -> setContact($contact);
+    $place -> setOpeningHours($opening_hours);
+    $place -> setDescription($description);
+    $place -> setLatitude($latitude);
+    $place -> setLongitude($longitude);
+    $place -> save();
 
-    array_push($allData, $data);
-    saveFileContent(FILE_COUNTRY, $allData);
     response($data, 201);
 } else if ($method === 'GET' && !isset($_GET['id'])) {
 
-    $allData = readFileContent(FILE_COUNTRY);
+    $places = (New Place())->list();
 
     response($allData, 200);
 } else if ($method === 'DELETE') {
@@ -89,7 +86,7 @@ if ($method === 'POST') {
 
     foreach ($allData as $position => $item){
         if ($item -> id === $id){
-            $allData[$position]->name = isset($body->name) ? $body-name : $item->name; 
+            $allData[$position]->name = isset($body->name) ? $body->name : $item->name; 
             $allData[$position]->contact = isset($body->contact) ? $body->contact : $item->contact;
             $allData[$position]->opening_hours = isset($body->opening_hours) ? $body->opening_hours : $item->opening_hours;
             $allData[$position]->description = isset($body->description) ? $body->description : $item->description;
