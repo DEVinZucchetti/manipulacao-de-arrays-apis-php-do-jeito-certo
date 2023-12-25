@@ -1,6 +1,12 @@
 <?php
 require_once './utils.php';
 
+// enun ReviewsStatus {
+//     case 1: 'PENDENTE';
+//     case 2: 'FINALIZADO';
+//     case 3: 'REPROVADO';
+// }
+
 class Review
 {
     private $id;
@@ -11,11 +17,12 @@ class Review
     private $status;
     private $place_id;
 
-    public function __construct($place_id)
+    public function __construct($place_id = null)
     {
         $this->id = uniqid();
         $this->place_id = $place_id;
         $this->date = (new DateTime())->format('d/m/Y h:i');
+        $this->status = 'PENDENTE';
     
     }
 
@@ -27,12 +34,21 @@ class Review
             'email' => $this->getEmail(),
             'stars' => $this->getStars(),
             'status' => $this->getStatus(),
-            'place_id' => $this->getId(),
+            'place_id' => $this->getPlaceId(),
         ];
 
         $allData = readFileContent('reviews.txt');
         array_push($allData, $data);
         saveFileContent('reviews.txt', $allData);
+    }
+
+    public function list(){
+        $allData = readFileContent('reviews.txt');
+
+        $filtered = array_values(array_filter($allData, function($review) {
+           return $review ->place_id === $this->getPlaceId();
+        }));
+        return $filtered;
     }
 
 
@@ -94,12 +110,12 @@ class Review
         return $this;
     }
 
-    public function getPlace_id()
+    public function getPlaceId()
     {
         return $this->place_id;
     }
 
-    public function setPlace_id($place_id)
+    public function setPlaceId($place_id)
     {
         $this->place_id = $place_id;
 
