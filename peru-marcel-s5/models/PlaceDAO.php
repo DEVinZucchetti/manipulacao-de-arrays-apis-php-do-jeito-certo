@@ -141,4 +141,5 @@ class PlaceDAO extends Database
 
             return ['success' => true];
     }
+
 }
