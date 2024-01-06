@@ -18,7 +18,7 @@ Abstração
 Encapsulamento*/
 
 
-$blacklist = ['polimorfismo', 'herança', 'Abstração', 'Encapsulamento'];
+$blacklist = ['polimorfismo', 'herança', 'abstração', 'encapsulamento'];
 
 if ($method === 'POST') {
     $body = getBody();
@@ -27,18 +27,17 @@ if ($method === 'POST') {
     $name = sanitizeInput($body, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
     $email = sanitizeInput($body, 'email', FILTER_VALIDATE_EMAIL);
     $stars = sanitizeInput($body, 'stars', FILTER_VALIDATE_FLOAT);
-    $status = sanitizeInput($body, 'status', FILTER_SANITIZE_SPECIAL_CHARS);
 
     if(!$place_id) responseError('ID do lugar ausente', 400);
     if(!$name) responseError('Descrição da avaliação ausente', 400);
     if(!$email) responseError('Email inválido', 400);
     if(!$stars) responseError('Quantidade de estrelas ausente', 400);
-    if(!$status) responseError('Status da avaliação ausente', 400);
+
     if(strlen($name) > 200) responseError('O texto ultrapassou o limite', 400);
 
     foreach ($blacklist as $word) {
-        if(str_contains($name, $word)) {
-           $name = str_replace('%'.$name.'%', '😬', $word);
+        if(str_contains(strtolower($name), $word)) {
+           $name = str_ireplace('%'.$name.'%', '😬', $word);
         }
 
     }
@@ -47,10 +46,12 @@ if ($method === 'POST') {
     $review->setName($name);
     $review->setEmail($email);
     $review->setStars($stars);
-    $review->setStatus($status);
     $review->save();
 
     response(['message' => 'Cadastrado com sucesso'], 201);
     
+} else if($method = 'GET'){
+    $place_id = filter_var($_GET, 'id', FILTER_VALIDATE_INT);
+    if(!$place_id) responseError('ID do lugar ausente', 400);
 }
 ?>
