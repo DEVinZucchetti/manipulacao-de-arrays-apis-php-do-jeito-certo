@@ -53,5 +53,24 @@ if ($method === 'POST') {
 } else if($method = 'GET'){
     $place_id = filter_var($_GET, 'id', FILTER_VALIDATE_INT);
     if(!$place_id) responseError('ID do lugar ausente', 400);
+    
+    $reviews = new Review($place_id);
+
+    response($reviews->list(), 200);
+} else if ($method === "PUT") {
+    echo "............";
+    $body = getBody();
+    $id =  sanitizeInput($_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS, false);
+
+    $status = sanitizeInput($body,  'status', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    if (!$status) {
+        responseError('Status ausente', 400);
+    }
+
+    $review = new Review();
+    $review->updateStatus($id, $status);
+
+    response(['message' => 'Atualizado com sucesso'], 200);
 }
 ?>
