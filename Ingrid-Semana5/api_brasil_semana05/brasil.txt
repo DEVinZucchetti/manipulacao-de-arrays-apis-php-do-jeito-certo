@@ -1,0 +1,1 @@
+{"id":1704414484,"name":"Catedral da S\u00e9","contact":"00000000000","opening_hours":"09h-20h","description":"Marco central de SP","latitude":-23.5503099,"longitude":-46.6342009}
