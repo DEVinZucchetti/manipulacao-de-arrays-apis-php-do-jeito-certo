@@ -28,10 +28,15 @@ if ($method === 'POST') {
         responseError('O item já existe', 409);
     }
 
- 
+    //  foreach ($places as $place) {
+    //     if ($place->name === $name) {
+    //         echo json_encode(['error' => 'Este lugar já está cadastrado.']);
+    //         exit;
+    //     }
+    // }
 
     $data = [
-        'id' => $_SERVER['REQUEST_TIME'], 
+        'id' => $_SERVER['REQUEST_TIME'],
         'name' => $name,
         'contact' => $contact,
         'opening_hours' =>  $opening_hours,
